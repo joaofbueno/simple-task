@@ -13,9 +13,13 @@ class TaskApiController extends Controller
         $tasks = [];
 
         if ($id) {
-            // pega somente a task do ID enviado
+            
+             $tasks = Task::where('id', '=', $id)->get();
+
         } else {
-            // pega todas as taks
+        
+             $tasks = Task::all();
+
         }
 
         if ($isRequest) {

@@ -17,7 +17,7 @@ class TaskController extends Controller
     {
         $tasks = TaskApiController::get($id, false);
 
-        return view('colocar a view que lista as taks aqui', [
+        return view('task.get', [
             'tasks' => $tasks
         ]);
     }
@@ -32,7 +32,7 @@ class TaskController extends Controller
      */
     public function add(Request $request)
     {
-        return view('task.create');
+        return view('task.add');
     }
 
 
@@ -44,9 +44,14 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $tasks = new Task();
+        $tasks = task::where('id', '=', $id)->get();
+
+        return view('task.update', [
+            'tasks' => $tasks
+        ]);
     }
 
 
@@ -59,6 +64,18 @@ class TaskController extends Controller
      */
     public function delete($id)
     {
-        //
+        $tasks = new Task();
+        $tasks = task::where('id', '=', $id)->get();
+
+        return view('task.delete', [
+            'tasks' => $tasks
+        ]);
     }
+
+
+
+    public function test() {
+        return view('child');
+    }
+
 }

@@ -1,6 +1,43 @@
+.br {
+    border: 1px solid red;
+}
+
 .container-form {
     margin: 0px 150px;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #FFF;
+}
+
+.task-list-box {
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #58ACFA;
+    border-radius: 5px;
+    position: relative;
+}
+
+.font-sm {
+    font-size: 0.75em;
+}
+
+.task-btns {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+
+.bg-task-default {
+    background-color: #9ebee6;
+}
+
+.bg-task-urgent {
+    background-color: #e6a3a3;
+}
+
+.bg-task-checked {
+    background-color: #7ddb9b;
+}
+.bold {
+    font-weight: bold;
 }

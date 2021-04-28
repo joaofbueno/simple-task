@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/tasks/{id?}', 'TaskController@get');
-Route::post('/tasks', 'TaskController@add');
-Route::put('/tasks', 'TaskController@update');
-Route::delete('/tasks', 'TaskController@delete');
+Route::get('/tasks/{id?}', 'TaskController@get')->where ('id', '[0-9]+') ->name('get');
+Route::post('/tasks', 'TaskController@add')->name('add');
+Route::put('/tasks/{id}', 'TaskController@update')->name('update');
+Route::delete('/tasks/{id}', 'TaskController@delete')->name('delete');
 
 // Route::post('/tasks', 'TaskController@create');
 

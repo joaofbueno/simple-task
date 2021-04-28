@@ -11,15 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/tasks/add', 'TaskController@add')->name('add');
+Route::get('/tasks/{id?}', 'TaskController@get')->where('id', '[0-9]+') -> name('get');
+Route::get('/tasks/update/{id}', 'TaskController@update')->name('update');
+Route::get('/tasks/delete/{id}', 'TaskController@delete')->name('delete');
 
-Route::get('/tasks/add', 'TaskController@add');
-Route::get('/tasks/{id?}', 'TaskController@get');
-Route::get('/tasks/update', 'TaskController@update');
-Route::get('/tasks/delete', 'TaskController@delete');
-
+Route::get('/test', 'TaskController@test');
 // Route::get('/tasks/add', 'TaskController@viewCreate');
 
 // //Mostra todas ou uma task só
