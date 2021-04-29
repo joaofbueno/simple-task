@@ -41,3 +41,9 @@
 .bold {
     font-weight: bold;
 }
+
+.input-edit-id{
+    display: inline;
+    width: 40px;
+}
+}

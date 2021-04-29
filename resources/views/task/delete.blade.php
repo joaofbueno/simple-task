@@ -28,8 +28,6 @@
                 @endif
             @endforeach
 
-            <button class="btn btn-danger ms-4">Excluir</button>
-
         </div>
 
     </div>
