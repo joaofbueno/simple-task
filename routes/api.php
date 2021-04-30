@@ -21,8 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/tasks/{id?}', 'TaskApiController@get')->where ('id', '[0-9]+') ->name('get');
 Route::post('/tasks', 'TaskApiController@add')->name('add-api');
-Route::post('/tasks/update/{id}', 'TaskController@update');
-Route::delete('/tasks/delete', 'TaskController@delete');
+Route::post('/tasks/update/{id}', 'TaskApiController@update');
+Route::get('/tasks/delete/{id}', 'TaskApiController@delete');
 
 // Route::post('/tasks', 'TaskController@create');
 

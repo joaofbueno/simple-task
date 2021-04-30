@@ -17,6 +17,12 @@
             <li class="nav-item">
                 <a href=" {{route('add')}} " class="nav-link">Adicionar</a>
             </li>
+            <li class="nav-item">
+                <a href=" {{route('getUrgent')}} " class="nav-link">Urgentes</a>
+            </li>
+            <li class="nav-item">
+                <a href=" {{route('getChecked')}} " class="nav-link">Feitas</a>
+            </li>
         </ul>
     </div>
 

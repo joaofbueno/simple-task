@@ -22,6 +22,24 @@ class TaskController extends Controller
         ]);
     }
 
+    public function getUrgent()
+    {
+        $tasks = Task::where('urgency', '=', '1')->get();
+
+        return view('task.urgents-tasks', [
+            'tasks' => $tasks
+        ]);
+    }
+
+    public function getChecked()
+    {
+        $tasks = Task::where('checked', '=', '1')->get();
+
+        return view('task.checked-tasks', [
+            'tasks' => $tasks
+        ]);
+    }
+
 
     
     /**

@@ -64,19 +64,24 @@ class TaskApiController extends Controller
         $data = $request->all();
 
         $task = new Task();
-        $task = Task::where('id', '=', $id)->get();
+        $task = Task::find($id);
 
         $task->title = $data['title'];
-        $task->description = $data['desciption'];
+        $task->description = $data['description'];
         $task->checked = isset($data['checked']) && $data['checked'] ? true : false;
         $task->urgency = isset($data['urgency']) && $data['urgency'] ? true : false;
+
+        if ($task->checked) {
+            $task->urgency = false;
+        }
+        
         $task->save();
 
         return Redirect::to('/tasks');
     }
 
     public function delete($id) {
-        $task = Task::where('id', '=', $id)->get();
+        $task = Task::find($id);
         $task->delete();
 
         return Redirect::to('/tasks');
