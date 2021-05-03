@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark p-3">
 
     <!-- Logo -->
     <h3 class="navbar-brand">SimpleTask</h3>

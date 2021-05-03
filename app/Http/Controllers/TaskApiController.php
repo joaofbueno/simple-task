@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Task;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 
 class TaskApiController extends Controller
@@ -19,7 +20,8 @@ class TaskApiController extends Controller
 
         } else {
         
-             $tasks = Task::all();
+            // $tasks = Task::all();
+            $tasks = Task::where('id', '>', '0')->orderBy('updated_at', 'desc')->get();
 
         }
 
@@ -85,6 +87,30 @@ class TaskApiController extends Controller
         $task->delete();
 
         return Redirect::to('/tasks');
+    }
+
+    public static function moveUp($id) {
+       
+        $task = new Task();
+        $task = Task::find($id);
+        $task->updated_at = Carbon::now();
+        $task->save();
+
+        return $task;
+    }
+
+    public static function getUrgent($id) {
+       
+        $tasks = Task::where('urgency', '=', '1')->get();
+
+        return $tasks;
+    }
+
+    public static function getChecked($id) {
+       
+        $tasks = Task::where('checked', '=', '1')->get();
+
+        return $tasks;
     }
 
 }

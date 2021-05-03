@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\TaskApiController;
 use Illuminate\Http\Request;
 use App\Task;
+use Illuminate\Support\Facades\Redirect;
 
 class TaskController extends Controller
 {
@@ -22,26 +23,24 @@ class TaskController extends Controller
         ]);
     }
 
-    public function getUrgent()
+    public function getUrgent($id)
     {
-        $tasks = Task::where('urgency', '=', '1')->get();
+        $tasks = TaskApiController::getUrgent($id);
 
         return view('task.urgents-tasks', [
             'tasks' => $tasks
         ]);
     }
 
-    public function getChecked()
+    public function getChecked($id)
     {
-        $tasks = Task::where('checked', '=', '1')->get();
+        $tasks = TaskApiController::getChecked($id);
 
         return view('task.checked-tasks', [
             'tasks' => $tasks
         ]);
     }
 
-
-    
     /**
      * Store a newly created resource in storage.
      *
@@ -53,8 +52,6 @@ class TaskController extends Controller
         return view('task.add');
     }
 
-
-
     /**
      * Update the specified resource in storage.
      *
@@ -64,15 +61,12 @@ class TaskController extends Controller
      */
     public function update($id)
     {
-        $tasks = new Task();
-        $tasks = task::where('id', '=', $id)->get();
+        $tasks = TaskApiController::get($id, false);
 
         return view('task.update', [
             'tasks' => $tasks
         ]);
     }
-
-
 
     /**
      * Remove the specified resource from storage.
@@ -82,18 +76,19 @@ class TaskController extends Controller
      */
     public function delete($id)
     {
-        $tasks = new Task();
-        $tasks = task::where('id', '=', $id)->get();
+        $tasks = TaskApiController::get($id, false);
 
         return view('task.delete', [
             'tasks' => $tasks
         ]);
     }
 
+    public function moveUp($id)
+    {
+        $tasks = TaskApiController::moveUp($id);
 
-
-    public function test() {
-        return view('child');
+        return redirect::to('/tasks');
     }
+
 
 }

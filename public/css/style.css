@@ -38,12 +38,16 @@
 .bg-task-checked {
     background-color: #7ddb9b;
 }
+
 .bold {
     font-weight: bold;
 }
 
-.input-edit-id{
+.input-edit-id {
     display: inline;
     width: 40px;
 }
+
+.below-navbar, nav+.container:first-of-type {
+    margin-top: 130px;
 }

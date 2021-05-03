@@ -23,6 +23,7 @@ Route::get('/tasks/{id?}', 'TaskApiController@get')->where ('id', '[0-9]+') ->na
 Route::post('/tasks', 'TaskApiController@add')->name('add-api');
 Route::post('/tasks/update/{id}', 'TaskApiController@update');
 Route::get('/tasks/delete/{id}', 'TaskApiController@delete');
+Route::get('/tasks/move/{id}', 'TaskApiController@moveUp');
 
 // Route::post('/tasks', 'TaskController@create');
 

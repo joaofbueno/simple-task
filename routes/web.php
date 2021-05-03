@@ -19,7 +19,4 @@ Route::get('/tasks/delete/{id}', 'TaskController@delete')->name('delete');
 
 Route::get('/tasks/urgent', 'TaskController@getUrgent')->name('getUrgent');
 Route::get('/tasks/checked', 'TaskController@getChecked')->name('getChecked');
-// Route::get('/tasks/add', 'TaskController@viewCreate');
-
-// //Mostra todas ou uma task só
-// Route::get('/tasks/{id?}', 'TaskController@get');
+Route::get('/tasks/move/{id}', 'TaskController@moveUp')->name('move');
